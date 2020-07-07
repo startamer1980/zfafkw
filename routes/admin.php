@@ -69,6 +69,16 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
     ########################### End Wedding_halls Route ######################################
 
 
+
+    ########################### Begin Wedding_halls Route ######################################
+
+    Route::group(['prefix' => 'qabael'], function (){
+        Route::get('/{qa_id}', 'QabaelController@cat') -> name('admin.qabael.cat');
+        Route::get('/{qa_id}/list/{type_id}', 'QabaelController@index') -> name('admin.qabael.index');
+    });
+    ########################### End Wedding_halls Route ######################################
+
+
 });
 
 

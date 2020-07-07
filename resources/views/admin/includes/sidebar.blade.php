@@ -263,6 +263,224 @@
                 </ul>
             </li>
 
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الرشايده</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '24')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله العوازم</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '33')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله مطير</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '42')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله عنزه</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '51')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله شمر</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '61')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله العجمان</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '70')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الهواجر</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '79')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الدواسر</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '80')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الظفير</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '81')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله عتيبه</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '82')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله العدواني</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '83')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله السهلي</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '84')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله القحطاني</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '85')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الخالدي</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '86')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الحربي</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '89')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله الفضلي</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '88')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> قبيله السبيعي</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.cat', '89')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                </ul>
+            </li>
+
 
 
         </ul>
