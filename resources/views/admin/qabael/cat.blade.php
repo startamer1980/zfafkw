@@ -47,70 +47,22 @@
                                     <div class="card-body card-dashboard">
 
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,1])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> فيديوهات افراح {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,2])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> فيديوهات مناسبات {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,3])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> صور افراح {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,4])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> دعوات افراح {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,5])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> دعوات مناسبات {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,6])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> تهنئات {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,7])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> عقد قران ابناء {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div style="text-align: center">
-                                                    <a href="{{route('admin.qabael.index', [$cat->id,8])}}">
-                                                        <img src="{{asset('assets/admin/images/logo/logo.png')}}"  class="rounded-circle height-100">
-                                                        <p> ديوانيات ابناء {{$cat->name}} </p>
-                                                    </a>
-                                                </div>
-                                            </div>
+
+                                            @isset($qa_cat)
+                                                @foreach($qa_cat as $qa_c)
+
+                                                    <div class="col-md-6">
+                                                        <div style="text-align: center">
+                                                            <a href="{{route('admin.qabael.form1.index', [$cat->id,$qa_c->id])}}">
+                                                                <img src="{{$qa_c->image}}"  class="rounded-circle height-100">
+                                                                <p> {{$qa_c->title}} {{$cat->name}} </p>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endisset
+
+
                                         </div>
                                         <div class="justify-content-center d-flex">
                                         </div>

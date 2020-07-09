@@ -61,6 +61,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'qabael_categories' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/qabael_categories/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
         'admins' => [
             'driver' => 'local',
             'root' => base_path() . '/assets/images/admins/',

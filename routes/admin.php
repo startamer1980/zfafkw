@@ -73,8 +73,26 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
     ########################### Begin Wedding_halls Route ######################################
 
     Route::group(['prefix' => 'qabael'], function (){
+
         Route::get('/{qa_id}', 'QabaelController@cat') -> name('admin.qabael.cat');
-        Route::get('/{qa_id}/list/{type_id}', 'QabaelController@index') -> name('admin.qabael.index');
+
+        ###################### Begin Form1 Qabael Route ####################################
+        Route::get('/{qa_id}/list/{type_id}', 'QabaelController@form1index') -> name('admin.qabael.form1.index');
+        Route::get('/{qa_id}/create/{type_id}', 'QabaelController@form1create') -> name('admin.qabael.form1.create');
+        Route::get('/{qa_id}/store/{type_id}', 'QabaelController@form1store') -> name('admin.qabael.form1.store');
+        ###################### End Form1 Qabael Route ####################################
+
+        ###################### Begin Qabael category Route ####################################
+        Route::group(['prefix' => 'category'], function(){
+            Route::get('/', 'QabaelCategoryController@index') -> name('admin.qabael.category');
+            Route::get('/create', 'QabaelCategoryController@create') -> name('admin.qabael.category.create');
+            Route::post('/store', 'QabaelCategoryController@store') -> name('admin.qabael.category.store');
+            Route::get('/edit/{id}', 'QabaelCategoryController@edit') -> name('admin.qabael.category.edit');
+            Route::post('/update/{id}', 'QabaelCategoryController@update') -> name('admin.qabael.category.update');
+            Route::get('/delete/{id}', 'QabaelCategoryController@destroy') -> name('admin.qabael.category.delete');
+
+        });
+        ###################### End Qabael category Route ####################################
     });
     ########################### End Wedding_halls Route ######################################
 

@@ -6,14 +6,14 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> المشرفين </h3>
+                    <h3 class="content-header-title"> تصنيفات القبائل </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active"> المشرفين
+                                <li class="breadcrumb-item active"> تصنيفات القبائل
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">جميع مشرفين الموقع </h4>
+                                    <h4 class="card-title">تصنيفات القبائل </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -50,36 +50,34 @@
                                             <thead>
                                             <tr>
                                                 <th>الصوره</th>
-                                                <th> الاسم</th>
-                                                <th>الايميل</th>
-                                                <th>الحالة</th>
+                                                <th> العنوان</th>
+                                                <th>الترتيب</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
 
-                                            @isset($admins)
-                                                @foreach($admins as $admin)
+                                            @isset($qabael_cat)
+                                                @foreach($qabael_cat as $cat)
                                                     <tr>
-                                                <td><img src="{{$admin->image}}" class="rounded-circle height-100"> </td>
-                                                <td>{{$admin->name}}</td>
-                                                <td>{{$admin->email}}</td>
-                                                <td>{{$admin->getActive()}}</td>
-                                                <td>
-                                                    <div class="btn-group" role="group"
-                                                         aria-label="Basic example">
-                                                        <a href="{{route('admin.admins.edit', $admin->id)}}"
-                                                           class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                        <td><img src="{{$cat->image}}" class="rounded-circle height-100"> </td>
+                                                        <td>{{$cat->title}}</td>
+                                                        <td>{{$cat->sort}}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group"
+                                                                 aria-label="Basic example">
+                                                                <a href="{{route('admin.qabael.category.edit', $cat->id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                        <a href="{{route('admin.admins.delete', $admin->id)}}"
-                                                           class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+{{--                                                                <a href="{{route('admin.qabael.category.delete', $cat->id)}}"--}}
+{{--                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>--}}
 
 
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             @endisset
 

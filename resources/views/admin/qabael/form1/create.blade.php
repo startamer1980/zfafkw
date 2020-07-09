@@ -6,14 +6,18 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
+                    <h3 class="content-header-title"> {{$type->title}} {{$qabela->name}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.admins')}}"> المشرفين </a>
+                                <li class="breadcrumb-item active">
+                                    <a href="{{route('admin.qabael.cat', $qabela->id)}}">تصنيفات {{$qabela->name}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة مشرف
+                                <li class="breadcrumb-item active">
+                                    {{$type->title}} {{$qabela->name}}
                                 </li>
                             </ol>
                         </div>
@@ -21,13 +25,14 @@
                 </div>
             </div>
             <div class="content-body">
-                <!-- Basic form layout section start -->
-                <section id="basic-form-layouts">
-                    <div class="row match-height">
-                        <div class="col-md-12">
+                <!-- DOM - jQuery events table -->
+                <section id="dom">
+                    <div class="row">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة مشرف </h4>
+                                    <h4 class="card-title">{{$type->title}} {{$qabela->name}} </h4>
+
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -46,9 +51,19 @@
                                         <form class="form" action="{{route('admin.admins.store')}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-
+                                            @if (count($errors) > 0)
+                                                <div class="error">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            <input type="hidden" name="qabela_id" value="{{$qabela->id}}">
+                                            <input type="hidden" name="type_id" value="{{$type->id}}">
                                             <div class="form-group">
-                                                <label> صوره المشرف </label>
+                                                    <label> الصوره الرئيسيه </label>
                                                 <label id="projectinput7" class="file center-block">
                                                     <input type="file" id="file" name="image">
                                                     <span class="file-custom"></span>
@@ -59,73 +74,52 @@
                                                 @enderror
                                             </div>
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات المشرف </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> البيانات </h4>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم </label>
-                                                            <input type="text" value="" id="name"
+                                                            <label for="projectinput1"> العنوان </label>
+                                                            <input type="text" value="" id="title"
                                                                    class="form-control"
-                                                                   placeholder="ادخل اسم المشرف  "
-                                                                   name="name">
-                                                            @error('name')
+                                                                   placeholder="ادخل العنوان  "
+                                                                   name="title">
+                                                            @error('title')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
-                                                        <div class="form-group mt-1">
-                                                            <input type="checkbox" value="1" name="active"
-                                                                   id="switcheryColor4"
-                                                                   class="switchery" data-color="success"
-                                                                   checked/>
-                                                            <label for="switcheryColor4"
-                                                                   class="card-title ml-1">الحالة </label>
-                                                        </div>
-                                                        @error('active')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <label for="projectinput2"> اسم المستخدم </label>
+                                                            <select name="user_id" class="select2 form-control">
+                                                                <optgroup label="من فضلك أختر اسم المستخدم ">
+                                                                    @isset($users)
+                                                                        @foreach($users as $user)
+                                                                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                                                        @endforeach
+                                                                    @endisset
 
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('user_id')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                 </div>
 
-
-
-
-
-
-
                                                 <div class="row">
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الايميل </label>
-                                                            <input type="email" value="" id="email"
-                                                                   class="form-control"
-                                                                   placeholder="ادخل ايميل المشرف  "
-                                                                   name="email">
-                                                            @error('email')
+                                                            <label for="projectinput1"> الوصف </label>
+                                                            <textarea class="form-control" id="description" name="description" ></textarea>
+                                                            @error('description')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> كلمة السر </label>
-                                                            <input type="password" value="" id="password"
-                                                                   class="form-control"
-                                                                   placeholder="ادخل كلمة سر المشرف  "
-                                                                   name="password">
-                                                            @error('password')
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
 
                                                 </div>
                                             </div>

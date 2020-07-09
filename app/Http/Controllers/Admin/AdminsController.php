@@ -35,8 +35,8 @@ class AdminsController extends Controller
 
             return redirect()->route('admin.admins')->with(['success'=>'تم الحفظ بنجاح']);
         }catch (\Exception $ex){
-//            return $ex;
-            return redirect()->route('admin.admins')->with(['error'=>'حدث خطأ, حاول مره اخري']);
+            return $ex;
+//            return redirect()->route('admin.admins')->with(['error'=>'حدث خطأ, حاول مره اخري']);
         }
 
     }

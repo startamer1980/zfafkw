@@ -14,7 +14,7 @@ class WeddingHalls extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'cat_id', 'image', 'img_other', 'title', 'description', 'active', 'phone', 'whatsapp', 'address', 'latitude', 'longitude', 'created_at', 'updated_at', 'views'
+        'user_id', 'cat_id', 'type_cat_id', 'image', 'img_other', 'title', 'description', 'active', 'phone', 'whatsapp', 'address', 'latitude', 'longitude', 'created_at', 'updated_at', 'views'
     ];
 
 
@@ -27,5 +27,11 @@ class WeddingHalls extends Model
     }
     public function getImageAttribute($val){
         return ($val !== null) ? asset('assets/'. $val) : "";
+    }
+
+
+
+    public function ScopeQabelaSelection($query, $cat_id, $typeCatId){
+        return $query->Selection($cat_id)-> where('type_cat_id', $typeCatId);
     }
 }
