@@ -29,8 +29,6 @@ class WeddingHalls extends Model
         return ($val !== null) ? asset('assets/'. $val) : "";
     }
 
-
-
     public function ScopeQabelaSelection($query, $cat_id, $typeCatId){
         return $query->Selection($cat_id)-> where('type_cat_id', $typeCatId);
     }

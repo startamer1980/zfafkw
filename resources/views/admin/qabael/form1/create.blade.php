@@ -48,7 +48,7 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.admins.store')}}" method="POST"
+                                        <form class="form" action="{{route('admin.qabael.form1.store', [$qabela->id, $type->id])}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
                                             @if (count($errors) > 0)
@@ -60,8 +60,6 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <input type="hidden" name="qabela_id" value="{{$qabela->id}}">
-                                            <input type="hidden" name="type_id" value="{{$type->id}}">
                                             <div class="form-group">
                                                     <label> الصوره الرئيسيه </label>
                                                 <label id="projectinput7" class="file center-block">

@@ -30,7 +30,8 @@ class QabaelController extends Controller
         $users = User::selection();
         return view('admin.qabael.form1.create', compact('qabela', 'type', 'users'));
     }
-    public function store(QabelaForm1Requests $request){
+    public function form1store (QabelaForm1Requests $request, $qabela_id, $type_id){
+
         try {
             $filepath = "";
             if($request->has('image')){
@@ -39,17 +40,17 @@ class QabaelController extends Controller
 
             WeddingHalls::create([
                 'user_id'       =>$request->user_id,
-                'cat_id'        =>$request->qabela_id,
-                'type_cat_id'   =>$request->type_cat_id,
+                'cat_id'        =>$qabela_id,
+                'type_cat_id'   =>$type_id,
                 'image'         =>$filepath,
-                'title'         =>$request->name,
+                'title'         =>$request->title,
                 'description'   =>$request->description
             ]);
 
-
-            return redirect()->route('admin.category')->with(['success'=>'تم الحفظ بنجاح']);
+            return redirect()->route('admin.qabael.form1.index', [$qabela_id, $type_id])->with(['success'=>'تم الحفظ بنجاح']);
         }catch (\Exception $ex){
-            return redirect()->route('admin.category')->with(['error'=>'حدث خطأ, حاول مره اخري']);
+            return $ex;
+            return redirect()->route('admin.qabael.form1.index', [$qabela_id, $type_id])->with(['error'=>'حدث خطأ, حاول مره اخري']);
         }
 
     }

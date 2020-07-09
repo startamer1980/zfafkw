@@ -76,7 +76,7 @@
                                                     <tr>
                                                 <td><img src="{{$rowData->image}}" class="rounded-circle height-100"> </td>
                                                 <td>{{$rowData->title}}</td>
-                                                <td>{{$rowData->created_at}}</td>
+                                                <td>{{$rowData->created_at->toDateString()}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group"
                                                          aria-label="Basic example">

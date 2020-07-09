@@ -27,11 +27,10 @@ class QabaelCategory extends Model
         return ($val !== null) ? asset('assets/'. $val) : "";
     }
     public function ScopeLastSortNumber($query){
-    try {
-        return $query ->select('sort')->orderBy('id', 'DESC')->first()->sort;
-    }catch (\Exception $ex){
-        return 0;
+        try {
+            return $query ->select('sort')->orderBy('id', 'DESC')->first()->sort;
+        }catch (\Exception $ex){
+            return 0;
+        }
     }
-
-}
 }
