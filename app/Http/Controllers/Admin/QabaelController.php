@@ -93,19 +93,19 @@ class QabaelController extends Controller
 //            return redirect()->route('admin.category')->with(['error'=>'حدث خطأ, حاول مره اخري']);
 //        }
 //    }
-//
-//    public function destroy($id){
-//        try {
-//            $cat = Category::find($id);
-//            if(!$cat){
-//                return redirect()->route('admin.category', $id)->with(['error'=>'هذا القسم غير موجود']);
-//            }
-//            $cat->delete();
-//            return redirect()->route('admin.category')->with(['success'=>'تم الحذف بنجاح']);
-//        }catch (\Exception $ex){
-//            return redirect()->route('admin.category')->with(['error'=>'حدث خطأ, حاول مره اخري']);
-//        }
-//    }
+
+    public function form1destroy($qabela_id, $type_id, $id){
+        try {
+            $cat = WeddingHalls::find($id);
+            if(!$cat){
+                return redirect()->route('admin.qabael.form1.index', [$qabela_id, $type_id])->with(['error'=>'هذا القسم غير موجود']);
+            }
+            $cat->delete();
+            return redirect()->route('admin.qabael.form1.index', [$qabela_id, $type_id])->with(['success'=>'تم الحذف بنجاح']);
+        }catch (\Exception $ex){
+            return redirect()->route('admin.qabael.form1.index', [$qabela_id, $type_id])->with(['error'=>'حدث خطأ, حاول مره اخري']);
+        }
+    }
 
 
 }
