@@ -55,44 +55,46 @@ class QabaelController extends Controller
 
     }
 
-//    public function edit($id){
-//
-//        $cat = Category::getAllMainCategory()->find($id);
-//        if(!$cat){
-//            return redirect()->route('admin.category')->with(['error'=>'هذا القسم غير موجود']);
-//        }
-//        return view('admin.category.edit', compact('cat'));
-//    }
+    public function form1edit($qa_id, $type_id, $id){
+        $qabela = Category::find($qa_id);
+        $type = QabaelCategory::find($type_id);
+        $hall = WeddingHalls::find($id);
+        $users = User::selection();
+        return view('admin.qabael.form1.edit', compact('hall', 'qabela', 'type', 'users'));
 
-//    public function update($id, CategoryRequest $request){
-//        try {
-//            $cat = Category::find($id);
-//            if(!$cat){
-//                return redirect()->route('admin.category.edit', $id)->with(['error'=>'هذا القسم غير موجود']);
-//            }
-//
-//            if($request->has('image')){
-//                $filepath = uploadImage('categories', $request->image);
-//                Category::where('id', $id)->update(
-//                    [
-//                        'image'=>$filepath,
-//                    ]
-//                );
-//            }
-//
-//
-//            $cat->update([
-//                'name' => $request->name,
-//                'active' => $request->has('active') ? 1 : 0,
-//                'is_hase_sub_category' => $request->has('is_hase_sub_category') ? 1 : 0,
-//                'type_category' => $request->type_category,
-//                'sort' => $request->sort
-//            ]);
-//            return redirect()->route('admin.category')->with(['success'=>'تم التحديث بنجاح']);
-//        }catch (\Exception $ex){
-//            return redirect()->route('admin.category')->with(['error'=>'حدث خطأ, حاول مره اخري']);
-//        }
-//    }
+    }
+
+
+
+    public function form1update($cat_id, $type_id, $id, QabelaForm1Requests $request){
+
+        try {
+            $hall = WeddingHalls::find($id);
+            if(!$hall){
+                return redirect()->route('admin.qabael.form1.index', [$cat_id, $type_id])->with(['error'=>'هذا العنصر غير موجود']);
+            }
+
+            if($request->has('image')){
+                $filepath = uploadImage('halls', $request->image);
+                WeddingHalls::where('id', $id)->update(
+                    [
+                        'image'=>$filepath,
+                    ]
+                );
+            }
+
+            $hall->update([
+                'title'         =>$request->title,
+                'description'   =>$request->description,
+                'user_id'        =>$request->user_id
+            ]);
+            return redirect()->route('admin.qabael.form1.index', [$cat_id, $type_id])->with(['success'=>'تم الحفظ بنجاح']);
+        }catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('admin.qabael.form1.index', [$cat_id, $type_id])->with(['error'=>'حدث خطأ, حاول مره اخري']);
+
+        }
+    }
 
     public function form1destroy($qabela_id, $type_id, $id){
         try {

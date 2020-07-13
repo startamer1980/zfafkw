@@ -80,6 +80,8 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
         Route::get('/{qa_id}/list/{type_id}', 'QabaelController@form1index') -> name('admin.qabael.form1.index');
         Route::get('/{qa_id}/create/{type_id}', 'QabaelController@form1create') -> name('admin.qabael.form1.create');
         Route::post('/{qa_id}/store/{type_id}', 'QabaelController@form1store') -> name('admin.qabael.form1.store');
+        Route::get('/{qa_id}/edit/{type_id}/{id}', 'QabaelController@form1edit') -> name('admin.qabael.form1.edit');
+        Route::post('/{qa_id}/update/{type_id}/{id}', 'QabaelController@form1update') -> name('admin.qabael.form1.update');
         Route::get('/{qa_id}/delete/{type_id}/{id}', 'QabaelController@form1destroy') -> name('admin.qabael.form1.delete');
         ###################### End Form1 Qabael Route ####################################
 
