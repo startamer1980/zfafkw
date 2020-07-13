@@ -70,7 +70,38 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
 
 
 
-    ########################### Begin Wedding_halls Route ######################################
+    ########################### Begin Qabael Route ######################################
+
+    Route::group(['prefix' => 'cards'], function (){
+
+        Route::get('/', 'CardsController@cat') -> name('admin.cards.cat');
+
+        ###################### Begin Form1 Qabael Route ####################################
+        Route::get('/list/{type_id}', 'CardsController@form1index') -> name('admin.cards.form1.index');
+        Route::get('/create/{type_id}', 'CardsController@form1create') -> name('admin.cards.form1.create');
+        Route::post('/store/{type_id}', 'CardsController@form1store') -> name('admin.cards.form1.store');
+        Route::get('/edit/{type_id}/{id}', 'CardsController@form1edit') -> name('admin.cards.form1.edit');
+        Route::post('/update/{type_id}/{id}', 'CardsController@form1update') -> name('admin.cards.form1.update');
+        Route::get('/delete/{type_id}/{id}', 'CardsController@form1destroy') -> name('admin.cards.form1.delete');
+        ###################### End Form1 Qabael Route ####################################
+
+        ###################### Begin Qabael category Route ####################################
+        Route::group(['prefix' => 'category'], function(){
+            Route::get('/{cat_type}/list', 'QabaelCategoryController@index') -> name('admin.qabael.category');
+            Route::get('/{cat_type}/create', 'QabaelCategoryController@create') -> name('admin.qabael.category.create');
+            Route::post('/{cat_type}/store', 'QabaelCategoryController@store') -> name('admin.qabael.category.store');
+            Route::get('/{cat_type}/edit/{id}', 'QabaelCategoryController@edit') -> name('admin.qabael.category.edit');
+            Route::post('/{cat_type}/update/{id}', 'QabaelCategoryController@update') -> name('admin.qabael.category.update');
+            Route::get('/{cat_type}/delete/{id}', 'QabaelCategoryController@destroy') -> name('admin.qabael.category.delete');
+
+        });
+        ###################### End Qabael category Route ####################################
+    });
+    ########################### End Qabael Route ######################################
+
+
+
+    ########################### Begin Qabael Route ######################################
 
     Route::group(['prefix' => 'qabael'], function (){
 
@@ -87,17 +118,17 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
 
         ###################### Begin Qabael category Route ####################################
         Route::group(['prefix' => 'category'], function(){
-            Route::get('/', 'QabaelCategoryController@index') -> name('admin.qabael.category');
-            Route::get('/create', 'QabaelCategoryController@create') -> name('admin.qabael.category.create');
-            Route::post('/store', 'QabaelCategoryController@store') -> name('admin.qabael.category.store');
-            Route::get('/edit/{id}', 'QabaelCategoryController@edit') -> name('admin.qabael.category.edit');
-            Route::post('/update/{id}', 'QabaelCategoryController@update') -> name('admin.qabael.category.update');
-            Route::get('/delete/{id}', 'QabaelCategoryController@destroy') -> name('admin.qabael.category.delete');
+            Route::get('/{cat_type}/list', 'QabaelCategoryController@index') -> name('admin.qabael.category');
+            Route::get('/{cat_type}/create', 'QabaelCategoryController@create') -> name('admin.qabael.category.create');
+            Route::post('/{cat_type}/store', 'QabaelCategoryController@store') -> name('admin.qabael.category.store');
+            Route::get('/{cat_type}/edit/{id}', 'QabaelCategoryController@edit') -> name('admin.qabael.category.edit');
+            Route::post('/{cat_type}/update/{id}', 'QabaelCategoryController@update') -> name('admin.qabael.category.update');
+            Route::get('/{cat_type}/delete/{id}', 'QabaelCategoryController@destroy') -> name('admin.qabael.category.delete');
 
         });
         ###################### End Qabael category Route ####################################
     });
-    ########################### End Wedding_halls Route ######################################
+    ########################### End Qabael Route ######################################
 
 
 });

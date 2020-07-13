@@ -6,14 +6,18 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
+                    <h3 class="content-header-title">  {{$type->title}}</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.qabael.category', $cat_type)}}"> التصنيفات </a>
+                                <li class="breadcrumb-item active">
+                                    <a href="{{route('admin.qabael.cat', $qabela->id)}}">تصنيفات {{$qabela->name}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة تصنيف
+                                <li class="breadcrumb-item active">
+                                    {{$type->title}}
                                 </li>
                             </ol>
                         </div>
@@ -21,13 +25,14 @@
                 </div>
             </div>
             <div class="content-body">
-                <!-- Basic form layout section start -->
-                <section id="basic-form-layouts">
-                    <div class="row match-height">
-                        <div class="col-md-12">
+                <!-- DOM - jQuery events table -->
+                <section id="dom">
+                    <div class="row">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة تصنيف </h4>
+                                    <h4 class="card-title">{{$type->title}}  </h4>
+
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,52 +48,86 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.qabael.category.store', $cat_type)}}" method="POST"
+                                        <form class="form" action="{{route('admin.cards.form1.update', [$type->id, $hall->id])}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-
+                                            @if (count($errors) > 0)
+                                                <div class="error">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            <input type="hidden" name="id" value="{{$hall->id}}">
                                             <div class="form-group">
-                                                <label> صوره التصنيف </label>
+                                                <label> الصوره الرئيسيه </label>
                                                 <label id="projectinput7" class="file center-block">
                                                     <input type="file" id="file" name="image">
                                                     <span class="file-custom"></span>
                                                 </label>
+                                                <img src="{{$hall->image}}" class="rounded-circle height-100">
 
-                                                @error('image')
+                                                @error('img_main')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
                                             </div>
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات التصنيف </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> البيانات </h4>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> عنوان </label>
-                                                            <input type="text" value="" id="title"
+                                                            <label for="projectinput1"> العنوان </label>
+                                                            <input type="text" value="{{$hall->title}}" id="title"
                                                                    class="form-control"
-                                                                   placeholder="ادخل عنوان التصنيف  "
+                                                                   placeholder="ادخل العنوان  "
                                                                    name="title">
                                                             @error('title')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الترتيب </label>
-                                                            <input type="text" value="{{$lastSort}}" id="sort"
-                                                                   class="form-control"
-                                                                   placeholder="ادخل ترتيب العرض "
-                                                                   name="sort">
-                                                            @error('sort')
+                                                            <label for="projectinput2"> اسم المستخدم </label>
+                                                            <select name="user_id" class="select2 form-control">
+                                                                <optgroup label="من فضلك أختر اسم المستخدم ">
+                                                                    @isset($users)
+                                                                        @foreach($users as $user)
+                                                                            <option @if ($user->id == $hall->user_id) selected  @endif value="{{$user->id}}">
+                                                                                {{$user->name}}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    @endisset
+
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('user_id')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> الوصف </label>
+                                                            <textarea class="form-control" id="description" name="description" >{{$hall->description}}</textarea>
+                                                            @error('description')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
-
                                                 </div>
+                                            </div>
+
+
+
 
 
 
@@ -115,3 +154,5 @@
     </div>
 
 @endsection
+
+

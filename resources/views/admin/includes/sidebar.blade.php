@@ -47,11 +47,26 @@
                 </a>
                 <ul class="menu-content">
                     <li class="active">
-                        <a class="menu-item" href="{{route('admin.qabael.category')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-                    <li>
-                        <a class="menu-item" href="{{route('admin.qabael.category.create')}}" data-i18n="nav.dash.crypto">أضافة تصنيف </a>
-                    </li>
+                        <a class="menu-item" href="{{route('admin.qabael.category', 0)}}" data-i18n="nav.dash.ecommerce"> عرض لكل التصنيفات </a>
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a class="menu-item" href="{{route('admin.qabael.category.create', 0)}}" data-i18n="nav.dash.crypto">أضافة تصنيف </a>--}}
+{{--                    </li>--}}
+                </ul>
+            </li>
+
+
+            <li class="nav-item"><a href=""><i class="la la-home"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">تصنيفات البطاقات </span>
+                    <span class="badge badge badge-info badge-pill float-right mr-2">{{App\Models\QabaelCategory::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.qabael.category', 1)}}" data-i18n="nav.dash.ecommerce"> عرض تصنيفات البطاقات </a>
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a class="menu-item" href="{{route('admin.qabael.category.create', 1)}}" data-i18n="nav.dash.crypto">أضافة تصنيف </a>--}}
+{{--                    </li>--}}
                 </ul>
             </li>
 
@@ -274,6 +289,17 @@
                     </li>
                     <li>
                         <a class="menu-item" href="{{route('admin.wedding_halls.create', '16')}}" data-i18n="nav.dash.crypto">أضافة  </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item open"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">الدعوات العامه</span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">0</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.cards.cat')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                 </ul>
             </li>

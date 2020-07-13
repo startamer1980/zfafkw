@@ -15,22 +15,23 @@ class QabaelCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'image', 'sort', 'created_at', 'updated_at',
+        'title', 'image', 'sort', 'cat_type', 'created_at', 'updated_at',
     ];
 
 
     public function ScopeSelection($query){
-        return $query -> get();
+        return $query->orderBy('sort', 'DESC') -> get();
     }
 
     public function getImageAttribute($val){
         return ($val !== null) ? asset('assets/'. $val) : "";
     }
-    public function ScopeLastSortNumber($query){
+    public function ScopeLastSortNumber($query, $cat_type){
         try {
-            return $query ->select('sort')->orderBy('id', 'DESC')->first()->sort;
+            return $query ->select('sort')->where('cat_type', $cat_type)->orderBy('id', 'DESC')->first()->sort;
         }catch (\Exception $ex){
             return 0;
         }
     }
+
 }

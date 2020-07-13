@@ -14,7 +14,7 @@ class QabaelController extends Controller
 {
     public function cat($cat_id){
         $cat = Category::find($cat_id);
-        $qa_cat = QabaelCategory::selection();
+        $qa_cat = QabaelCategory::selection()->where('cat_type', 0);
         return view('admin.qabael.cat', compact('cat', 'qa_cat'));
     }
     public function form1index($qa_id, $type_id){
