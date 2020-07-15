@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+define('PAGINATION_API_COUNT', 100);
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
+    Route::post('/get_main_categories', 'CategoryController@get_main_category');
+    Route::post('/get_sub_categories/{cat_id}', 'CategoryController@get_sub_category');
 });

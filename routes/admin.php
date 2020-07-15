@@ -140,6 +140,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'guest:admin'], function(){
     Route::post('login',    'LoginController@Login')    ->name('admin.login');
 });
 
+
 Route::get("test_query",function (){
    return test_functions();
 });
