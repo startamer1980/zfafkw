@@ -21,6 +21,6 @@ define('PAGINATION_API_COUNT', 100);
 
 // test
 Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
-    Route::post('/get_main_categories', 'CategoryController@get_main_category');
+    Route::get('/get_main_categories', 'CategoryController@get_main_category');
     Route::post('/get_sub_categories/{cat_id}', 'CategoryController@get_sub_category');
 });
