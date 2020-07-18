@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class categoryController extends Controller
 {
 
-    public function get_main_categodry(){
+    public function get_main_category(){
         $result = Category::getAllMainCategory()->paginate(PAGINATION_API_COUNT);
 //        return $result;
 //        return response()->json($result);
