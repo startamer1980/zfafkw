@@ -20,7 +20,7 @@ class categoryController extends Controller
         return response()->json($resultArray);
     }
     public function get_sub_category($cat_id){
-        $sub_categories = Category::getAllSubCategory($cat_id)->paginate(PAGINATION_API_COUNT);
+        $sub_categories = Category::getAllSubCategory($cat_id)->get();
         return response()->json($sub_categories);
     }
 }
