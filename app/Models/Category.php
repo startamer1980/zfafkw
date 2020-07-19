@@ -14,7 +14,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'image', 'active', 'main_category', 'is_hase_sub_category', 'type_category', 'sort', 'created_at', 'updated_at',
+        'name', 'image', 'description', 'active', 'main_category', 'is_hase_sub_category', 'type_category', 'sort', 'created_at', 'updated_at',
     ];
 
 
@@ -35,7 +35,7 @@ class Category extends Model
 
     public function ScopeGetAllMainCategory($query){
 
-        return $query-> select('id', 'name', 'type_category', 'is_hase_sub_category', 'image','active','sort')->where('main_category', 0)->orderBy('sort', 'asc');
+        return $query-> select('id', 'name', 'description', 'type_category', 'is_hase_sub_category', 'image','active','sort')->where('main_category', 0)->orderBy('sort', 'asc');
     }
 
     public function getActive(){

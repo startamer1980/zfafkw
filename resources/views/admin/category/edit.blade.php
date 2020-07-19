@@ -78,6 +78,22 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label for="projectinput1"> الوصف </label>
+                                                            <textarea class="form-control" id="description" name="description" >{{$cat->description}}</textarea>
+                                                            @error('description')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
                                                             <label for="projectinput1"> الترتيب </label>
                                                             <input type="text" value="{{$cat->sort}}" id="name"
                                                                    class="form-control"
@@ -88,12 +104,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                </div>
-
-
-
-                                                <div class="row">
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput2"> نوع القسم </label>

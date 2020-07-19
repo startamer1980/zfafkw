@@ -31,6 +31,7 @@ class CategoryController extends Controller
 
             Category::create([
                 'name' => $request->name,
+                'description' => $request->description,
                 'image' => $filepath,
                 'active' => $request->has('active') ? 1 : 0,
                 'is_hase_sub_category' => $request->has('is_hase_sub_category') ? 1 : 0,
@@ -73,6 +74,7 @@ class CategoryController extends Controller
 
             $cat->update([
                 'name' => $request->name,
+                'description' => $request->description,
                 'active' => $request->has('active') ? 1 : 0,
                 'is_hase_sub_category' => $request->has('is_hase_sub_category') ? 1 : 0,
                 'type_category' => $request->type_category,
