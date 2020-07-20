@@ -21,6 +21,10 @@ class WeddingHalls extends Model
     public function ScopeSelection($query, $cat_id){
         return $query -> where('cat_id', $cat_id)->orderBy('id', 'desc')->get();
     }
+    public function ScopeSelect($query, $cat_id){
+        return $query -> where('cat_id', $cat_id)->orderBy('id', 'desc');
+    }
+
 
     public function getActive(){
         return $this->active == 1 ? 'مفعل' : 'غير مفعل';
@@ -31,5 +35,10 @@ class WeddingHalls extends Model
 
     public function ScopeQabelaSelection($query, $cat_id, $typeCatId){
         return $query->Selection($cat_id)-> where('type_cat_id', $typeCatId);
+    }
+
+    public function ScopeGetProductsListActiveForCatId($query, $cat_id){
+        return $query -> select($cat_id)->where('active', 1);
+
     }
 }

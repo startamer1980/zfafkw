@@ -12,8 +12,6 @@ class categoryController extends Controller
     public function get_main_category(){
         $result = Category::getAllMainCategory()->paginate(PAGINATION_API_COUNT);
         $resultArray = $result->toArray();
-
-// Now, what you need is the $result["data"] element
         $categories = $resultArray["data"];
         unset($resultArray['data']);
         $resultArray['categories'] = $categories;
