@@ -10,7 +10,7 @@ class categoryController extends Controller
 {
 
     public function get_main_category(){
-        $result = Category::getAllMainCategory()->orderby("sort", "asc")->paginate(PAGINATION_API_COUNT);
+        $result = Category::activeMainCategory()->orderby("sort", "asc")->paginate(PAGINATION_API_COUNT);
         $resultArray = $result->toArray();
         $categories = $resultArray["data"];
         unset($resultArray['data']);

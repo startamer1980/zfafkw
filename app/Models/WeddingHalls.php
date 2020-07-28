@@ -24,7 +24,9 @@ class WeddingHalls extends Model
     public function ScopeSelect($query, $cat_id){
         return $query -> where('cat_id', $cat_id)->orderBy('id', 'desc');
     }
-
+    public function getCreatedAtAttribute($val){
+        return strftime("%d %b %Y %I:%M %p",strtotime($val));
+    }
 
     public function getActive(){
         return $this->active == 1 ? 'مفعل' : 'غير مفعل';
