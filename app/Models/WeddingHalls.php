@@ -25,7 +25,7 @@ class WeddingHalls extends Model
         return $query -> where('cat_id', $cat_id)->orderBy('id', 'desc');
     }
     public function getCreatedAtAttribute($val){
-        return strftime("%d %b %Y %I:%M %p",strtotime($val));
+        return strftime("%d/%m/%Y %I:%M %p",strtotime($val));
     }
 
     public function getActive(){
