@@ -44,7 +44,8 @@ class productsController extends Controller
         $filepath = "";
         try {
             if($request->has('image')){
-                $filepath = uploadImage('halls', $request->image);
+
+                $filepath = uploadImage_base64('halls', $request->image);
             }
 
             WeddingHalls::create([
