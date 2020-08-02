@@ -45,7 +45,8 @@ class productsController extends Controller
         try {
             if($request->has('image')){
 
-                $filepath = uploadImage_base64('halls', $request->image);
+                $filepath = ""; //uploadImage_base64('halls', $request->image);
+
             }
 
             WeddingHalls::create([
@@ -63,7 +64,7 @@ class productsController extends Controller
             ]);
             return $this->returnSuccess("تمت الاضافه بنجاح");
         }catch (\Exception $ex) {
-            return $this->returnError($ex);
+            return $ex;
 
         }
     }
