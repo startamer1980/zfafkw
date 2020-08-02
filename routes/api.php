@@ -26,5 +26,6 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
     Route::get('/get_products/{cat_id}', 'productsController@getProductList');
     Route::group(['prefix'=>'product'], function (){
         Route::get('/increase_views/{product_id}', 'productsController@increaseViews');
+        Route::POST('/product_add', 'productsController@store');
     });
 });

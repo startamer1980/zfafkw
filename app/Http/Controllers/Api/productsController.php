@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WeddingHallsRequest;
 use App\Models\WeddingHalls;
+use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 
 class productsController extends Controller
 {
+    use GeneralTrait;
     public function getProductList($cat_id){
 
         $result = WeddingHalls::getProductsListActiveForCatId($cat_id)->paginate(PAGINATION_API_COUNT);
@@ -36,5 +39,31 @@ class productsController extends Controller
                 $result['message']= "حدث خطأ حاول مره اخري لاحقاً";
             }
             return response()->json($result);
+    }
+    public function store(Request $request){
+        $filepath = "";
+        try {
+            if($request->has('image')){
+                $filepath = uploadImage('halls', $request->image);
+            }
+
+            WeddingHalls::create([
+                'user_id'       =>$request->user_id,
+                'cat_id'        =>$request->cat_id,
+                'image'         =>$filepath,
+                'title'         =>$request->name,
+                'description'   =>$request->description,
+                'active'        =>1,
+                'phone'         =>$request->phone,
+                'whatsapp'      =>$request->whatsapp,
+                'address'       =>$request->address,
+                'latitude'      =>$request->latitude,
+                'longitude'     =>$request->longitude
+            ]);
+            return $this->returnSuccess("تمت الاضافه بنجاح");
+        }catch (\Exception $ex) {
+            return $this->returnError($ex);
+
+        }
     }
 }
