@@ -54,6 +54,7 @@ class productsController extends Controller
             WeddingHalls::create([
                 'user_id'       =>$request->user_id,
                 'cat_id'        =>$request->cat_id,
+                'cat_type_id'   =>($request->cat_type_id != null) ? $request->cat_type_id : 0,
                 'image'         =>$filepath,
                 'title'         =>$request->name,
                 'description'   =>$request->description,
