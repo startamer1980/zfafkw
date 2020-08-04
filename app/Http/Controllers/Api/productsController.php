@@ -24,21 +24,21 @@ class productsController extends Controller
 
         $result = array();
 
-            try {
-                $hall = WeddingHalls::find($id);
-                if(!$hall){
-                    $result['status'] = false;
-                    $result['message']= "هذا العنصر غير موجود او تم حذفه";
-                }
-                $hall->increment('views');
-                $hall->save;
-                $result['status'] = true;
-                $result['message']= "تمت العمليه بنجاح";
-            }catch (\Exception $ex){
+        try {
+            $hall = WeddingHalls::find($id);
+            if(!$hall){
                 $result['status'] = false;
-                $result['message']= "حدث خطأ حاول مره اخري لاحقاً";
+                $result['message']= "هذا العنصر غير موجود او تم حذفه";
             }
-            return response()->json($result);
+            $hall->increment('views');
+            $hall->save;
+            $result['status'] = true;
+            $result['message']= "تمت العمليه بنجاح";
+        }catch (\Exception $ex){
+            $result['status'] = false;
+            $result['message']= "حدث خطأ حاول مره اخري لاحقاً";
+        }
+        return response()->json($result);
     }
     public function store(Request $request){
         $filepath = "";
@@ -70,4 +70,27 @@ class productsController extends Controller
 
         }
     }
+
+
+
+
+
+
+
+    // ##################################### start qabael #######################
+
+
+    public function getProductQabaelList($cat_id, $type_cat_id){
+
+        $result = WeddingHalls::qabelaProductSelection($cat_id, $type_cat_id)->paginate(PAGINATION_API_COUNT);
+        $resultArray = $result->toArray();
+        $products = $resultArray["data"];
+        unset($resultArray['data']);
+        $resultArray['products'] = $products;
+        return response()->json($resultArray);
+    }
+
+    // ##################################### end qabael #######################
+
+
 }

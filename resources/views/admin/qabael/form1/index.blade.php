@@ -76,7 +76,7 @@
                                                     <tr>
                                                 <td><img src="{{$rowData->image}}" class="rounded-circle height-100"> </td>
                                                 <td>{{$rowData->title}}</td>
-                                                <td>{{$rowData->created_at->toDateString()}}</td>
+                                                <td>{{date('d-m-Y', strtotime($rowData->created_at))}} <br> {{date('h:i', strtotime($rowData->created_at))}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group"
                                                          aria-label="Basic example">

@@ -30,5 +30,6 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
     });
     Route::group(['prefix'=>'qabael'], function (){
         Route::get('/categories', 'qabaelCategoryApiController@list');
+        Route::get('/list/{cat_id}/{type_cat_id}', 'productsController@getProductQabaelList');
     });
 });

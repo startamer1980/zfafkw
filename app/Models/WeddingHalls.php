@@ -39,6 +39,10 @@ class WeddingHalls extends Model
         return $query->Selection($cat_id)-> where('type_cat_id', $typeCatId);
     }
 
+    public function ScopeQabelaProductSelection($query, $cat_id, $typeCatId){
+        return $query->select($cat_id)-> where('type_cat_id', $typeCatId);
+    }
+
     public function ScopeGetProductsListActiveForCatId($query, $cat_id){
         return $query -> select($cat_id)->where('active', 1);
 
