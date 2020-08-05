@@ -42,6 +42,8 @@ class productsController extends Controller
     }
     public function store(Request $request){
         $filepath = "";
+        $albumImage = "";
+        $images = array();
         try {
             if($request->has('image')){
 
@@ -50,12 +52,21 @@ class productsController extends Controller
             }else{
                 $filepath = "images/halls/hzzFyvWwfr5jk3Dfhysa8jQch50D0od9z15msaXJ.jpeg";
             }
+            if($request->hasFile('images')) {
+                $imagesFiles = $request->file('images');
+                foreach ($imagesFiles as $item) {
+                    $images[] = uploadImage('halls', $item);
+                }
+            }
+            $albumImage = implode(",",$images);
 
-            WeddingHalls::create([
+
+                WeddingHalls::create([
                 'user_id'       =>$request->user_id,
                 'cat_id'        =>$request->cat_id,
                 'type_cat_id'   =>$request->cat_type_id,
                 'image'         =>$filepath,
+                'img_other'     =>$albumImage,
                 'title'         =>$request->name,
                 'description'   =>$request->description,
                 'active'        =>1,
