@@ -58,7 +58,7 @@ class productsController extends Controller
                     $images[] = uploadImage('halls', $item);
                 }
             }
-            $albumImage = implode("|||",$images);
+            $albumImage = implode("|",$images);
 
 
                 WeddingHalls::create([
