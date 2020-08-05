@@ -45,10 +45,10 @@ class productsController extends Controller
         try {
             if($request->has('image')){
 
-                $filepath = uploadImage('qabael_categories', $request->image);
+                $filepath = uploadImage('halls', $request->image);
 
             }else{
-                $filepath = "images/qabael_categories/hzzFyvWwfr5jk3Dfhysa8jQch50D0od9z15msaXJ.jpeg";
+                $filepath = "images/halls/hzzFyvWwfr5jk3Dfhysa8jQch50D0od9z15msaXJ.jpeg";
             }
 
             WeddingHalls::create([
