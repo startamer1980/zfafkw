@@ -11,14 +11,14 @@ class uploadController extends Controller
     use GeneralTrait;
     public function uploadFile(Request $request){
         try {
-            if($request->has('images')){
+            if($request->hasFile('images')){
                 $images=array();
-                if($files=$request->file('images')){
-                    foreach($files as $file){
-                        $images[]=uploadImage('halls', $file);
+                $imagesFiles= $request->file('images');
+                    foreach($imagesFiles as $item){
+                        $images[] = uploadImage('halls', $item);
                     }
-                }
-                return $this->returnData("url", implode(",",$images), 'تم الرفع بنجاح');
+                    return $this->returnData("url", implode(",",$images) , 'تم الرفع بنجاح');
+
             }else{
                 $this->returnError("لم يتم ارسال اي ملفات لرفعها, نرجوا اعادة المحاوله");
             }
