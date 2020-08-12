@@ -73,6 +73,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'users' => [
+            'driver' => 'local',
+            'root' => base_path() . '/assets/images/users/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
         'halls' => [
             'driver' => 'local',
             'root' => base_path() . '/assets/images/halls/',

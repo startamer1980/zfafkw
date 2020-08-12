@@ -34,4 +34,14 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
         Route::get('/categories', 'qabaelCategoryApiController@list');
         Route::get('/list/{cat_id}/{type_cat_id}', 'productsController@getProductQabaelList');
     });
+    Route::group(['prefix'=>'users'], function (){
+        Route::post('/add', 'UsersController@add');
+        Route::post('/login', 'UsersController@login');
+        Route::group(['middleware' => 'checkUserToken:user_api'], function(){
+
+        });
+        Route::post('/update', 'UsersController@update');
+        Route::post('/change_password', 'UsersController@change_password');
+        Route::post('/change_avatar', 'UsersController@change_avatar');
+    });
 });
