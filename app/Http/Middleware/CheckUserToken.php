@@ -35,7 +35,7 @@ class CheckUserToken
             } else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
                 return $this -> returnError('EXPIRED_TOKEN');
             } else {
-                return $this -> returnError('TOKEN_NOTFOUND');
+                return $this -> returnError($e);
             }
         }
 

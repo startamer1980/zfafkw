@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,10 +37,10 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
         Route::post('/add', 'UsersController@add');
         Route::post('/login', 'UsersController@login');
         Route::group(['middleware' => 'checkUserToken:user_api'], function(){
-
+            Route::post('/change_avatar', 'UsersController@change_avatar');
+            Route::post('/update', 'UsersController@update');
+            Route::post('/change_password', 'UsersController@change_password');
         });
-        Route::post('/update', 'UsersController@update');
-        Route::post('/change_password', 'UsersController@change_password');
-        Route::post('/change_avatar', 'UsersController@change_avatar');
+
     });
 });

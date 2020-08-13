@@ -66,7 +66,7 @@ class UsersController extends Controller
     {
 
         try {
-            $user = User::find($request->id);
+            $user = Auth::user();
             if(!$user){
                 return $this->returnError("حدث خطأ حاول مره اخري, هذا العضو غير موجود");
             }
@@ -91,7 +91,7 @@ class UsersController extends Controller
     {
 
         try {
-            $user = User::find($request->id);
+            $user = Auth::user();
             if(!$user){
                 return $this->returnError("حدث خطأ حاول مره اخري, هذا العضو غير موجود");
             }
@@ -109,7 +109,7 @@ class UsersController extends Controller
     {
 
         try {
-            $user = User::find($request->id);
+            $user = Auth::user();
             if(!$user){
                 return $this->returnError("حدث خطأ حاول مره اخري, هذا العضو غير موجود");
             }
