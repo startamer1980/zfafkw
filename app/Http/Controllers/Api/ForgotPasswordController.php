@@ -12,7 +12,6 @@ class ForgotPasswordController extends Controller
     use GeneralTrait;
     public function forgot() {
         $credentials = request()->validate(['email' => 'required|email']);
-
         Password::sendResetLink($credentials);
 
         return $this->returnSuccess('Reset password link sent on your email id.');
@@ -25,7 +24,7 @@ class ForgotPasswordController extends Controller
         ]);
 
         $reset_password_status = Password::reset($credentials, function ($user, $password) {
-            $user->password = $password;
+            $user->password = bcrypt($password);
             $user->save();
         });
 

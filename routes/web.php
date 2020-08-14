@@ -19,5 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
+Route::group(['prefix'=>'/', 'namespace'=> 'Front'], function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/forgot_password', 'ForgotPasswordController@forgot_password')->name('password.reset');
+});
+
