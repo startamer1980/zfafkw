@@ -36,6 +36,8 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
     Route::group(['prefix'=>'users'], function (){
         Route::post('/add', 'UsersController@add');
         Route::post('/login', 'UsersController@login');
+        Route::post('/password/email', 'ForgotPasswordController@forgot');
+        Route::post('/password/reset', 'ForgotPasswordController@reset');
         Route::group(['middleware' => 'checkUserToken:user_api'], function(){
             Route::post('/change_avatar', 'UsersController@change_avatar');
             Route::post('/update', 'UsersController@update');
