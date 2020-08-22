@@ -33,6 +33,7 @@ class Category extends Model
         return $query -> where(['active'=> 1, 'main_category'=> 0]);
     }
 
+
     public function ScopeGetAllMainCategory($query){
 
         return $query-> select('id', 'name', 'description', 'type_category', 'is_hase_sub_category', 'image','active','sort')->where('main_category', 0)->orderBy('sort', 'asc');
