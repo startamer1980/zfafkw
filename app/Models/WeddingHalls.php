@@ -47,4 +47,8 @@ class WeddingHalls extends Model
         return $query -> select($cat_id)->where('active', 1);
 
     }
+    public function search($word){
+        return $this::where('title', 'LIKE', $word)->get();
+//        return WeddingHalls::where('title', 'LIKE', $word)->get();
+    }
 }
