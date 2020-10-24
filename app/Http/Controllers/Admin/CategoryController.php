@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     ############################ Begain main category ######################################################
 
     public function index(){

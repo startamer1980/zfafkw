@@ -20,7 +20,7 @@ class LoginController extends Controller
             return redirect()->route('admin.dashboard');
         }
         //notify()->error('خطأ في البيانات.. يرجي المحاوله لاحقاً');
-        return redirect()->route('admin.Auth.login')->with(['error'=>'هناك خطأ بالبيانات ']);
+        return redirect()->route('get.admin.login')->with(['error'=>'هناك خطأ بالبيانات ']);
     }
 
     public function logout(Request $request){
