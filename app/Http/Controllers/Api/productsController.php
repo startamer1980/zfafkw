@@ -20,6 +20,14 @@ class productsController extends Controller
         $resultArray['products'] = $products;
         return response()->json($resultArray);
     }
+    public function getCardsList($cat_id, $sub_cat_id){
+        $result = WeddingHalls::qabelaProductSelection($cat_id, $sub_cat_id)->paginate(PAGINATION_API_COUNT);
+        $resultArray = $result->toArray();
+        $products = $resultArray["data"];
+        unset($resultArray['data']);
+        $resultArray['products'] = $products;
+        return response()->json($resultArray);
+    }
     public function search($word){
         $result = WeddingHalls::where('title', 'LIKE', '%'.$word.'%')->paginate(PAGINATION_API_COUNT);
         $resultArray = $result->toArray();

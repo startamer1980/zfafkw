@@ -7,7 +7,7 @@ use App\Http\Requests\QabelaForm1Requests;
 use App\Models\Category;
 use App\Models\QabaelCategory;
 use App\Models\WeddingHalls;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CardsController extends Controller
