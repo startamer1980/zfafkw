@@ -31,6 +31,15 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth:admin'], function(){
         Route::get('/delete/{id}',  'AdminsController@destroy')  -> name('admin.admins.delete');
     });
     ########################### End Admins Route ######################################
+
+    ########################### Begin pages Route ######################################
+    Route::group(['prefix' => 'pages'], function (){
+        Route::get('/edit/{id}',    'PageController@edit')     -> name('admin.pages.edit');
+        Route::post('/update/{id}', 'PageController@update')   -> name('admin.pages.update');
+    });
+    ########################### End pages Route ######################################
+
+
     ########################### Begin Main Category Route ######################################
     Route::group(['prefix' => 'category'], function (){
         Route::get('/',                 'CategoryController@index')     -> name('admin.category');

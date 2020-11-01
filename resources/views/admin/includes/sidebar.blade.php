@@ -25,6 +25,31 @@
                 </ul>
             </li>
 
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">الصفحات </span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 1)}}" data-i18n="nav.dash.crypto">اتفاقية الاستخدام </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 2)}}" data-i18n="nav.dash.crypto">سياسة الخصوصيه </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 3)}}" data-i18n="nav.dash.crypto">المساعده </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 4)}}" data-i18n="nav.dash.crypto">اتصل بنا </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 5)}}" data-i18n="nav.dash.crypto">عن التطبيق </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.pages.edit', 6)}}" data-i18n="nav.dash.crypto">اعلن معنا </a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="nav-item"><a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الاقسام </span>

@@ -26,6 +26,9 @@ Route::group(['middleware'=>'api', 'namespace'=> 'Api'], function(){
     Route::post('/get_sub_categories/{cat_id}', 'categoryController@get_sub_category');
     Route::get('/get_products/{cat_id}', 'productsController@getProductList');
     Route::get('/get_cards/{cat_id}/{sub_cat_id}', 'productsController@getCardsList');
+    Route::group(['prefix'=>'page'], function (){
+        Route::get('/get/{id}', 'PageController@get');
+    });
     Route::group(['prefix'=>'product'], function (){
         Route::get('/search/{word}', 'productsController@search');
         Route::get('/increase_views/{product_id}', 'productsController@increaseViews');
